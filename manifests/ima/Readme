@@ -1,0 +1,10 @@
+The files are:
+- ima-policy.template: IMA policy template for FCOS; the ima policy file will be create from it
+- distro-keys/rsakey.pem: IMA RSA file signing key;
+  from here: https://github.com/stefanberger/fcos-kernel-build-container/tree/master/ima-keys
+- distro-keys/rsakey-rsa.crt.der: Certified IMA RSA file signing key to load onto .ima;
+  from here: https://github.com/stefanberger/fcos-kernel-build-container/tree/master/ima-keys
+- distro-keys/eckey.pem: IMA ECDSA file signing key;
+  from here: https://github.com/stefanberger/fcos-kernel-build-container/tree/master/ima-keys
+- distro-keys/eckey-rsa.crt.der: Certified IMA ECDSA file signing key to load onto .ima;
+  from here: https://github.com/stefanberger/fcos-kernel-build-container/tree/master/ima-keys

@@ -33,3 +33,10 @@ packages:
       bodhi: https://bodhi.fedoraproject.org/updates/FEDORA-2021-f5ae883a27
       reason: https://github.com/coreos/fedora-coreos-tracker/issues/746
       type: fast-track
+  # We need our own patched Linux kernel with proper .ima support
+  kernel:
+    evr: 5.12.8-3007.fc34
+  kernel-core:
+    evr: 5.12.8-3007.fc34
+  kernel-modules:
+    evr: 5.12.8-3007.fc34

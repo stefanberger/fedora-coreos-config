@@ -1,0 +1,6 @@
+[integrity]
+name=Integrity
+baseurl=http://k-mycroft.pok.ibm.com/pub/fedora-integrity/linux/releases/fcos-33/Everything/noarch/os/Packages/
+enabled=1
+repo_gpgcheck=0
+gpgcheck=0

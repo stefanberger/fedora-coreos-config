@@ -9,6 +9,12 @@ size: 10
 extra-kargs:
     # Disable SMT on systems vulnerable to MDS or any similar future issue.
     - mitigations=auto,nosmt
+    - ima_template=ima-sig
+    - ca_keys2nd=id:2dde5195
+    - _ima_appraisal=fix
+    - _evm=fix
+    - audit=0
+    - _single
 
 # Disable networking by default on firstboot. We can drop this once cosa stops
 # defaulting to `ip=dhcp,dhcp6 rd.neednet=1` when it doesn't see this key.

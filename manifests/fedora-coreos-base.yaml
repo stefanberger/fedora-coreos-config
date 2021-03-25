@@ -8,6 +8,7 @@ include:
   - networking-tools.yaml
   - system-configuration.yaml
   - user-experience.yaml
+  - ima/ima.yaml
 
 initramfs-args:
   - --no-hostonly

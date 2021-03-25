@@ -1,0 +1,2 @@
+
+add-files: [[ima-policy.template,/etc/ima/ima-policy.template],[systemd/ima-template-converter.service,/usr/lib/systemd/system/ima-template-converter.service],[systemd/ima-template-converter,/etc/ima/ima-template-converter]]

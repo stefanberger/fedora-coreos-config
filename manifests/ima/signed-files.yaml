@@ -1,0 +1,69 @@
+# The packages are providing support for signed files
+
+packages:
+  - ima-evm-utils
+  - attr
+  - dracut-integrity
+
+# !!! We will have to remove the rsakey.pem!
+add-files: [[distro-keys/rsakey-rsa.crt.der,/etc/keys/ima/rsakey-rsa.crt.der],
+            [distro-keys/eckey-rsa.crt.der,/etc/keys/ima/eckey-rsa.crt.der],
+            [dracut-integrity.conf,/etc/dracut.conf.d/dracut-integrity.conf],
+            [distro-keys/rsakey-rsa.crt.der,/etc/keys/x509_evm.der.rsa],
+            [distro-keys/eckey-rsa.crt.der,/etc/keys/x509_evm.der],
+            [user-keys/eckey-ecdsa.crt.der,/etc/keys/evm/eckey-ecdsa.crt.der],
+            [user-keys/ca.crt.der,/etc/keys/user-keys/ca.crt.der],
+            [user-keys/eckey-ecdsa.crt.der,/etc/keys/ima/eckey-ecdsa.crt.der],
+            [user-keys/eckey.pem,/etc/keys/user-keys/eckey.pem],
+            [all-executables,/etc/ima/all-executables],
+            [create-all-executables.sh,/etc/ima/create-all-executables.sh],
+            [evm,/etc/sysconfig/evm]]
+
+postprocess:
+  - |
+    #!/bin/bash
+    EVM_SIGN=1
+    ima_ctr=0 evm_ctr=0
+    KEY='LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcFFJQkFBS0NBUUVBNmdJZEhhUEVabGZqNktKclgvY3dVNnJMZUJMNk1TRHg0ditubXQ0NUFtQ0RpUERVCjZWNldzRjZCWm0wdGd1Njd4TC9sS2M1blluSXJLY0t4VXQxUGFCSElzMkt4aUs5cGlDUGE0a3VSNzhZYitRVk8KdmxaOWlEQWFHZE5saVJ0Z3BzWVdDQngwVVUzNFNxNFgydklTeHhxbUpqbEI4T1U1ZjNQaGVEMkhQcDNYYzRrawo5UitQbUNRTEY5a1Vwd0xPbnRFL2d3SVVQRHVIdUFKQWZ1Z28zejBDdVg1QjZzTHNBNjlQR1ZQeCtmbjlvSDF1CklTN2ZSY3NkbjBzZWZyYzJmREpQdWxZdEVjeE1Hb29TaFB3UEtPK3R5dUZJcE1IU1lYNHVKd3k2clNvWXozcGoKMDFReHBhWFd2by9YNnZpWFJYa3VKSEVHWW5ZRXYwZ0ptZCtQOXdJREFRQUJBb0lCQUQ0TCsyNWRldmpyK3ZrMgovNk45Wm1uNDBtUnZHN21sRTUzdHphSUpwRElXSnlwTE9Sajd4SmJWS0JoaGdIekVFak56OGk1b2xROE1XSmVGCkVRRjR2dEpJVE9BTG5pa3c0Wm1BY0V3cVgzS2xJOHVlZGFlUVJVNnorbWU0bnFhQkJOcVRrVW5yU1lnNVZVbHYKNmRGYStGR2twa05pVVRLdmhOUmZoSHdlVEZyMGUxVEhSb3ZyS1pCS0g4K212V2p2S1YvSzUra2pmRmI5WXNaQQpQNGEwSjZWeXBxV3J6T1AxMlAveUVZWTN2WDFlQ3V6MWJDaG9TdWE5MEY2SkY4b2ZReGNmMUU5b29ndXluY2VICjlTZFZFVjROVFJMTDY5VjVQd1N4dXk2NW9RZkdtTHZQRFJ2NGg5SEsxQk56Wks0OVQ5Zy9wOGFTV0Y3NWxGclkKY3U0ejllRUNnWUVBK21aQlYwZTFuSk9TYnRKUThJa0FiT0YzbkFLRkxZaThaR2FUdTMwdnJjdGxLeElDZk5GawpRdTRxaVY5RnFaTDNmOUpCREMvQy9xYlYwUllnaHZrM3VMS2pzT3Z5c09pS0taZGczWGJnVFZsWStRTGVMODRIClphYStEYzlaU0dHZ01rOG9Jdm9rNTZGQldXS1JQSjZlakhSWXRwR2g3Wm5ScDlYWFpQbXFaOGNDZ1lFQTd6NEIKWVEzOHQrQmdaMWVvcnZVZWg4T1FIMWJrcnBDVjV3M3FBZWdFaldGeWtvcUhQT3MvVTJ0Nnd5aS93QTRYODZtYgpVSXdEZXlrTDZVQThUMUR5b211Z1ZqQW0yd3U5ZXRSSHBnQ0I1alpTRlFaWUFPLytISTdsakRnYWRQLzBKQk5XCkZib21RdTBlK0lRSGo5UE1oamcyL2Z4b01aNE5YbDAxTjQzcGRsRUNnWUVBeDdET3dUVmQvMzJzMVJhREdDQ2EKSnpyME1ZWE5BZEEvTmU2Y09IU1FscEJUb1RLZXF6NHVNRFpSMC9ZWHp6RjJrZ2h5ZWE2SldwNWdmSHVoK3lJNwpMdC9BTFhNdHU2bm5yVjJkRVdFaFptNHZ4MzVqQlVyUW1WK054K09wZDFEcitkTW8xaVFaVkdSRWdtMWFHRGNECmlFMnRCZ1JFV0FGSXN3bVYybUJGWnJjQ2dZRUF2TUdFSHdvRkdTSmJqVTJaRmlqcEpKNkVTR1dyV1p0VDJnK2QKVUZHNXZiNWp3Z0N3QUwxdW9pZUxuUXk2ZFJIcGplS0VXd0dOQVkvNkNOY1lmay9VajVjdzBxOTlDSmZ6c0VScQpIeXdKVVJRTW9PLzNZUTM0eEpsdHZMckxEUUtnb2hIcmVvcjdBeFRJdWJTWnJyMmhnVWc3QXhzeExleVFpYUlxCmlhRmEwSEVDZ1lFQTZGZXBxRy9QSFN5dkJTWGkwOXZDK004NmxVdkV2dXVZNE5vSWpDOHAwNG5HanM5Y2p2N2MKbkVpdHA3SmZjUDZoN291T3VwKzVrTGVCcWorUzZXYzBYUElISGRMSUkvODNJZDBlUUZzeTdZei9lTk9Mb3lEMAppeElKd3hWQmswdUZ2QTBCT3VWNnBPbjZ1elNTMHltL3ZCaHhFaXMxWThSSXo4aTRmQm5PYitzPQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo='
+    ECKEY='LS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSUVUVnFVUWVKOVhJbjhXZUlCUDZkY0QrMFNTeWpqM21SdkJmcWtoMVVmTGtvQW9HQ0NxR1NNNDkKQXdFSG9VUURRZ0FFUzQ2My8xTjAzcTJxWXVodXc3L0YyTHA4cUNldlgrZkpldFJwM1YyVER0STJIODFLa0l4cwpHaFI0UUV6V3l1TUZUL3o2ZkJ6dGVyS25BZmt0S1JjWHd3PT0KLS0tLS1FTkQgRUMgUFJJVkFURSBLRVktLS0tLQo='
+    echo "${KEY}" | base64 -d > rsakey.pem
+    echo "${ECKEY}" | base64 -d > eckey.pem
+    # See above for /etc/keys/x509_evm.der!
+    cp eckey.pem evmkey.pem
+    cp eckey.pem imakey.pem
+    DIRS=(/usr/ /etc/)
+    #FIND_OPTS="-maxdepth 1"
+    for FILE in \
+      $(find $(echo ${DIRS[*]}) ${FIND_OPTS} -type f \
+          -not \( -path '/usr/lib/modules/*' \
+               -o -path '/usr/lib/kbd/*' \
+               -o -path '/usr/lib/firmware/*' \
+               -o -path '/usr/lib/rpm/platform/*' \
+               -o -path '/usr/lib/grub/*' \
+               -o -path '/usr/share/*' \
+               -o -path '/etc/selinux/*' \
+               -o -path '/etc/pki/rpm-gpg/*' \
+               -o -path '/etc/pki/ca-trust/' \)); do
+      echo "IMA: Signing ${FILE}"
+      evmctl sign --imasig --key ./imakey.pem -a sha256 --xattr-user "${FILE}" &>/dev/null
+      ima_ctr=$((ima_ctr + 1))
+      if [ ${EVM_SIGN} -eq 1 ]; then
+        IMA=$(getfattr -m ^user.ima -e hex --dump "${FILE}" 2>/dev/null | sed -n 's/user.ima=0x\(.*\)$/\1/p')
+        ESC_FILE=$(echo "${FILE}" | sed 's/[\[+.]/\\\0/g')
+        # rofiles-fuse doesn't give us the proper SELinux label, so we have to use the helper-file
+        SEL=$(grep -E " ${ESC_FILE}\$" /etc/ima/all-executables | gawk '{print $1}')
+        if [ -n "${SEL}" ] && [ -n "${IMA}" ]; then
+          echo "EVM: Signing ${FILE} expecting SELinux label ${SEL}"
+          evmctl sign --portable --key ./evmkey.pem -a sha256 --xattr-user --ima "${IMA}" --selinux "${SEL}" --generation 0 "${FILE}" &>/dev/null
+          evm_ctr=$((evm_ctr + 1))
+        else
+          echo "EVM: Skipping ${FILE}"
+        fi
+      fi
+    done
+    echo "Signature stats: ima: ${ima_ctr}  evm: ${evm_ctr}"
+    # For testing remove signature from xmlwf
+    setfattr -x user.ima /usr/bin/xmlwf
+    # Sanity check
+    #getfattr -m ^ --dump /usr/bin/gpg /usr/bin/gpg2 /usr/bin/ping
+    # rm -f rsakey.pem

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+IMA_POLICY_TEMPLATE=/etc/ima/ima-policy.template
+IMA_POLICY=/etc/ima/ima-policy
+
+if [ -f "${IMA_POLICY_TEMPLATE}" ] && [ ! -f "${IMA_POLICY}" ] ; then
+	blkid_label_root="$(blkid $(blkid --label root) -s UUID | \
+		sed -n 's/.*UUID="\([0-9a-f\-]*\)"/\1/p')"
+	sed -s "s/%blkid_label_root%/${blkid_label_root}/g" \
+		"${IMA_POLICY_TEMPLATE}" > "${IMA_POLICY}"
+	cat "${IMA_POLICY}" > /sys/kernel/security/ima/policy
+fi
