@@ -1,0 +1,10 @@
+[Unit]
+Description=FCOS IMA policy template converter
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/bash /etc/ima/ima-template-converter
+
+[Install]
+WantedBy=multi-user.target

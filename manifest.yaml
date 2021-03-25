@@ -15,6 +15,7 @@ repos:
   # GitHub Action.
   - fedora
   - fedora-updates
+  - integrity
 
 add-commit-metadata:
   fedora-coreos.stream: testing-devel

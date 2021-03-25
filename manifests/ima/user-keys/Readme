@@ -1,0 +1,5 @@
+ca.crt.der : CA's self-signed cert; load into MOK DB using 'mokutil --import <filename>'
+             Add ca_keys=id:2dde5195
+ca.key     : CA's private key ECDSA key
+eckey-ecdsa.crt.der : ECDSA key certified by above CA; have this loaded by dracut from /etc/keys/ima
+eckey.pem           : ECDSA private key; use this for signing files

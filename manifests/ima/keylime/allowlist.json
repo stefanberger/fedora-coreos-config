@@ -1,0 +1,23 @@
+{
+    "meta" : {
+       "version": 3
+    },
+    "release": 0,
+    "hashes": {
+    },
+    "keyrings": {
+        ".ima": [
+            "a7d52aaa18c23d2d9bb2abb4308c0eeee67387a42259f4a6b1a42257065f3d5a",
+            "687a22762555781d8ce82e285e71c3dce7bdcf0fb8cdd68ae172c9144267555f",
+            "447960716965568f381cf303149c5650821ff8b25b953b9ec983af51fcd0fe3c"
+        ],
+        ".evm": [
+            "687a22762555781d8ce82e285e71c3dce7bdcf0fb8cdd68ae172c9144267555f",
+            "a7d52aaa18c23d2d9bb2abb4308c0eeee67387a42259f4a6b1a42257065f3d5a"
+        ],
+        ".builtin_trusted_keys": []
+    },
+    "ima": {
+        "ignored_keyrings": [".builtin_trusted_keys"]
+    }
+}

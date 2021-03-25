@@ -8,3 +8,5 @@ enable coreos-check-cgroups.service
 # Clean up injected Ignition config in /boot on upgrade
 # https://github.com/coreos/fedora-coreos-tracker/issues/889
 enable coreos-cleanup-ignition-config.service
+# Convert an IMA policy template into an IMA policy
+enable ima-template-converter.service

@@ -1,0 +1,5 @@
+
+include:
+  - ima-policy-template.yaml
+  - signed-files.yaml
+  - keylime/keylime.yaml

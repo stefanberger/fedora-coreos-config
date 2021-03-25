@@ -1,0 +1,44 @@
+boot_aggregate
+# due to skipped directories when signing
+/usr/lib/modules/
+/usr/lib/kbd/
+/usr/lib/firmware/
+/usr/lib/rpm/platform/
+/usr/lib/grub/
+/usr/share/
+/etc/selinux/
+/etc/pki/rpm-gpg/
+/etc/pki/ca-trust/
+# due to docker and containers
+/var/lib/docker/buildkit/
+/var/lib/docker/containers/
+/var/lib/docker/containerd/
+/var/lib/docker/network/
+/var/lib/docker/overlay2/
+/var/lib/docker/tmp/
+/var/lib/docker/image/overlay2/
+/var/lib/docker/volumes/
+# other reasons
+/etc/issue.d/
+/etc/resolv.conf
+/etc/nsswitch.conf
+/etc/hosts
+/etc/passwd
+/etc/group
+/etc/ld.so.cache
+/etc/udev/
+/etc/machine-id
+/etc/selinux/
+/etc/shadow
+/etc/docker/.tmp
+/etc/rpm-ostreed.conf
+/etc/ssh/
+/usr/lib/group
+/usr/lib/passwd
+/usr/lib/tmpfiles.d/
+/usr/lib/os-release
+/sysroot/ostree/
+/var/lib/sss/
+/var/lib/systemd/
+/var/roothome/
+/var/log

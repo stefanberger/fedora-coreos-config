@@ -1,0 +1,9 @@
+# allow the keys reported on various keyrings
+# measure func=KEY_CHECK keyrings=.ima|.evm|.builtin_trusted_keys|.secondary_trusted_keys
+a7d52aaa18c23d2d9bb2abb4308c0eeee67387a42259f4a6b1a42257065f3d5a %leyring:.ima
+687a22762555781d8ce82e285e71c3dce7bdcf0fb8cdd68ae172c9144267555f %keyring:.ima
+447960716965568f381cf303149c5650821ff8b25b953b9ec983af51fcd0fe3c %keyring:.ima
+687a22762555781d8ce82e285e71c3dce7bdcf0fb8cdd68ae172c9144267555f %keyring:.evm
+a7d52aaa18c23d2d9bb2abb4308c0eeee67387a42259f4a6b1a42257065f3d5a %keyring:.evm
+c3e21842f12fb0d9dfc4823d242016434419e2cb95a9574bf2bbb34aed2e9240 %keyring:.builtin_trusted_keys
+9e10813f8c361d58cafe9d4640f39641d87860ff60bccd27302cd9e216e5db64 %keyring:.builtin_trusted_keys

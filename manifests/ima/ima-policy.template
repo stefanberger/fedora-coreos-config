@@ -1,0 +1,30 @@
+dont_measure fsmagic=0x9fa0
+dont_measure fsmagic=0x62656572
+dont_measure fsmagic=0x64626720
+dont_measure fsmagic=0x1021994
+dont_measure fsmagic=0x1cd1
+dont_measure fsmagic=0x42494e4d
+dont_measure fsmagic=0x73636673
+dont_measure fsmagic=0xf97cff8c
+dont_measure fsmagic=0x43415d53
+dont_measure fsmagic=0x27e0eb
+dont_measure fsmagic=0x63677270
+dont_measure fsmagic=0x6e736673
+dont_measure fsmagic=0xde5e81e4
+#dont_measure obj_type=var_log_t
+#dont_measure obj_type=sssd_public_t
+#dont_measure obj_type=NetworkManager_var_lib_t
+#dont_measure obj_type=abrt_var_cache_t
+measure func=MMAP_CHECK mask=MAY_EXEC fsuuid=%blkid_label_root%
+measure func=BPRM_CHECK mask=MAY_EXEC fsuuid=%blkid_label_root%
+measure func=KEY_CHECK keyrings=.ima|.builtin_trusted_keys|.secondary_trusted_keys|.evm
+#measure func=FILE_CHECK mask=^MAY_READ euid=0 fsuuid=%blkid_label_root%
+#measure func=FILE_CHECK mask=^MAY_READ uid=0 fsuuid=%blkid_label_root%
+#measure func=MODULE_CHECK fsuuid=%blkid_label_root%
+#measure func=FIRMWARE_CHECK fsuuid=%blkid_label_root%
+#measure func=POLICY_CHECK fsuuid=%blkid_label_root%
+#measure func=KEXEC_KERNEL_CHECK fsuuid=%blkid_label_root%
+#measure func=KEXEC_INITRAMFS_CHECK fsuuid=%blkid_label_root%
+# dont_appraise obj_type=user_tmp_t
+appraise func=MMAP_CHECK appraise_type=imasig fsuuid=%blkid_label_root%
+appraise func=BPRM_CHECK appraise_type=imasig fsuuid=%blkid_label_root%
